@@ -47,13 +47,13 @@ body {
   padding: 110px 20px 70px;
 }
 
-/* HERO */
 .grid {
   display: grid;
   grid-template-columns: 140px 1fr;
   gap: 30px;
 }
 
+/* PROFILE */
 .profile-pic {
   width: 140px;
   height: 140px;
@@ -61,6 +61,27 @@ body {
   background: #1f2937;
 }
 
+/* SOCIAL ICONS (RESTORED + FIXED) */
+.socials {
+  margin-top: 15px;
+}
+
+.icon {
+  width: 32px;
+  height: 32px;
+  display: inline-block;
+  margin: 6px;
+  background-size: cover;
+  filter: invert(90%);
+  transition: 0.2s ease;
+}
+
+.icon:hover {
+  transform: scale(1.15);
+  opacity: 1;
+}
+
+/* HERO TEXT */
 .name {
   font-size: 2.8rem;
   margin: 0 0 10px;
@@ -70,32 +91,39 @@ body {
   color: #cbd5e1;
 }
 
-/* SOCIALS */
-.icon {
-  width: 32px;
-  height: 32px;
-  display: inline-block;
-  margin: 6px;
-  filter: invert(90%);
+/* ================= SECTIONS ================= */
+h2 {
+  margin-top: 60px;
 }
 
-/* ================= SIDE BY SIDE GRID ================= */
+/* CARDS */
+.cards {
+  display: grid;
+  gap: 15px;
+}
+
+.card {
+  padding: 18px;
+  border-radius: 12px;
+  background: rgba(255,255,255,0.04);
+  border: 1px solid rgba(255,255,255,0.08);
+}
+
+/* ================= EXPERIENCE ================= */
 .side-grid {
   display: grid;
   grid-template-columns: 1fr 1fr;
   gap: 20px;
 }
 
-/* ================= FRAME ================= */
-.frame, .certs-frame {
+.frame {
   background: rgba(255,255,255,0.04);
-  border: 1px solid rgba(255,255,255,0.1);
   border-radius: 14px;
   padding: 16px;
-  backdrop-filter: blur(10px);
+  border: 1px solid rgba(255,255,255,0.1);
 }
 
-/* ================= COLLAPSIBLE ================= */
+/* COLLAPSIBLE */
 .collapsible {
   cursor: pointer;
 }
@@ -103,7 +131,6 @@ body {
 .collapse-header {
   display: flex;
   justify-content: space-between;
-  align-items: center;
 }
 
 .collapse-body {
@@ -117,27 +144,28 @@ body {
   margin-top: 10px;
 }
 
-/* ================= JOB ================= */
+/* JOB */
 .job {
   border-left: 2px solid rgba(255,255,255,0.2);
   padding-left: 12px;
   margin-top: 10px;
 }
 
-/* ================= CERTS ================= */
+/* ================= CERTIFICATIONS ================= */
 .certs {
   display: flex;
   flex-wrap: wrap;
   gap: 10px;
 }
 
+/* FIX: prevent blue link styling */
 .cert {
   padding: 8px 12px;
   border-radius: 999px;
   background: rgba(255,255,255,0.06);
   border: 1px solid rgba(255,255,255,0.12);
-  color: #e5e7eb;
-  text-decoration: none;
+  color: #e5e7eb;        /* <-- keeps text white */
+  text-decoration: none; /* <-- removes blue underline */
   transition: 0.2s;
 }
 
@@ -146,7 +174,7 @@ body {
   border-color: rgba(255,255,255,0.3);
 }
 
-/* ================= SCROLL ANIMATION ================= */
+/* ================= ANIMATIONS ================= */
 .reveal {
   opacity: 0;
   transform: translateY(18px);
