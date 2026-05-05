@@ -3,13 +3,47 @@ body {
   background: #0f172a;
   color: #e2e8f0;
   text-align: center;
-  padding: 50px;
+  margin: 0;
+  padding: 40px;
 }
 
+.profile {
+  max-width: 700px;
+  margin: 0 auto;
+}
+
+/* Profile picture circle */
+.profile-pic {
+  width: 140px;
+  height: 140px;
+  margin: 0 auto 20px;
+  border-radius: 50%;
+  background: #1e293b;
+  border: 2px solid #334155;
+}
+
+/* Name */
 h1 {
-  font-size: 3rem;
+  margin-bottom: 10px;
 }
 
+/* Social links */
+.socials {
+  margin-bottom: 20px;
+}
+
+.socials a {
+  margin: 0 10px;
+  color: #60a5fa;
+  text-decoration: none;
+  font-weight: bold;
+}
+
+.socials a:hover {
+  text-decoration: underline;
+}
+
+/* Paragraph spacing */
 p {
-  font-size: 1.2rem;
+  line-height: 1.6;
 }
