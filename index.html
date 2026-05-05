@@ -26,7 +26,6 @@
     <div class="left">
       <div class="profile-pic"></div>
 
-      <!-- RESTORED SOCIAL ICONS -->
       <div class="socials">
         <a href="https://www.linkedin.com/in/hammad-s" target="_blank" class="icon linkedin"></a>
         <a href="https://github.com/Hammad-M-Sheikh" target="_blank" class="icon github"></a>
@@ -43,7 +42,7 @@
 
   </div>
 
-  <!-- WORKING ON (MOVED ABOVE PROJECTS) -->
+  <!-- WORKING ON -->
   <section id="working" class="reveal">
     <h2>Currently Working On</h2>
 
@@ -101,13 +100,22 @@
       </div>
 
       <!-- EDUCATION -->
-      <div class="frame">
-        <h3>Education</h3>
+      <div class="frame collapsible">
 
-        <div class="job">
-          <h4>Your University</h4>
-          <span>2020 – 2025</span>
+        <div class="collapse-header">
+          <h3>Education</h3>
+          <span>Click to expand</span>
         </div>
+
+        <div class="collapse-body">
+
+          <div class="job">
+            <h4>Your University</h4>
+            <span>2020 – 2025</span>
+          </div>
+
+        </div>
+
       </div>
 
     </div>
@@ -135,7 +143,7 @@
 </div>
 
 <script>
-/* ================= STARS ================= */
+/* STARS */
 const canvas = document.getElementById("stars");
 const ctx = canvas.getContext("2d");
 
@@ -176,14 +184,14 @@ function animate() {
 animate();
 window.addEventListener("resize", resize);
 
-/* COLLAPSE */
+/* COLLAPSIBLE (EXPERIENCE + EDUCATION) */
 document.querySelectorAll(".collapsible").forEach(el => {
   el.addEventListener("click", () => {
     el.classList.toggle("open");
   });
 });
 
-/* SCROLL ANIMATION */
+/* SCROLL REVEAL */
 const observer = new IntersectionObserver(entries => {
   entries.forEach(e => {
     if (e.isIntersecting) e.target.classList.add("show");
