@@ -1,49 +1,100 @@
 body {
+  margin: 0;
   font-family: Arial, sans-serif;
-  background: #0f172a;
+  background: radial-gradient(circle at top, #0f172a, #020617);
   color: #e2e8f0;
   text-align: center;
-  margin: 0;
   padding: 40px;
 }
 
+/* Container */
 .profile {
-  max-width: 700px;
+  max-width: 800px;
   margin: 0 auto;
 }
 
-/* Profile picture circle */
+/* Profile picture */
 .profile-pic {
   width: 140px;
   height: 140px;
   margin: 0 auto 20px;
   border-radius: 50%;
-  background: #1e293b;
-  border: 2px solid #334155;
+  background: linear-gradient(145deg, #1e293b, #0f172a);
+  border: 2px solid #38bdf8;
+  box-shadow: 0 0 20px rgba(56, 189, 248, 0.3);
 }
 
-/* Name */
+/* Name glow effect */
 h1 {
+  font-size: 2.5rem;
   margin-bottom: 10px;
+  color: #e2e8f0;
+  text-shadow: 0 0 10px rgba(56, 189, 248, 0.4);
 }
 
-/* Social links */
+/* Social icons */
 .socials {
   margin-bottom: 20px;
 }
 
-.socials a {
+.icon {
+  display: inline-block;
+  width: 40px;
+  height: 40px;
   margin: 0 10px;
-  color: #60a5fa;
-  text-decoration: none;
-  font-weight: bold;
+  background-size: cover;
+  filter: drop-shadow(0 0 5px rgba(56, 189, 248, 0.5));
+  transition: transform 0.2s ease;
 }
 
-.socials a:hover {
-  text-decoration: underline;
+.icon:hover {
+  transform: scale(1.15);
 }
 
-/* Paragraph spacing */
+/* LinkedIn icon */
+.linkedin {
+  background-image: url("https://cdn.jsdelivr.net/gh/simple-icons/simple-icons/icons/linkedin.svg");
+  filter: invert(60%) sepia(90%) saturate(300%) hue-rotate(170deg);
+}
+
+/* GitHub icon */
+.github {
+  background-image: url("https://cdn.jsdelivr.net/gh/simple-icons/simple-icons/icons/github.svg");
+  filter: invert(90%);
+}
+
+/* Paragraph */
 p {
   line-height: 1.6;
+  color: #cbd5e1;
+}
+
+/* Section title */
+h2 {
+  margin-top: 40px;
+  color: #38bdf8;
+  text-shadow: 0 0 8px rgba(56, 189, 248, 0.3);
+}
+
+/* Project cards */
+.cards {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 15px;
+  margin-top: 20px;
+}
+
+.card {
+  background: rgba(15, 23, 42, 0.7);
+  border: 1px solid rgba(56, 189, 248, 0.2);
+  padding: 20px;
+  border-radius: 12px;
+  text-align: left;
+  box-shadow: 0 0 15px rgba(0, 0, 0, 0.3);
+  transition: transform 0.2s ease, border 0.2s ease;
+}
+
+.card:hover {
+  transform: translateY(-5px);
+  border: 1px solid rgba(56, 189, 248, 0.6);
 }
