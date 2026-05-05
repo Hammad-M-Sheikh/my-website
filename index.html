@@ -8,60 +8,65 @@
 
 <body>
 
+<!-- Background -->
 <canvas id="stars"></canvas>
 
-<div class="profile">
+<!-- Page container -->
+<div class="content">
 
-  <div class="content">
+  <!-- NAME (aligned with text column) -->
+  <h1 class="name">Hammad Sheikh</h1>
 
-    <!-- NAME (now aligned with about section) -->
-    <h1 class="name">Hammad Sheikh</h1>
+  <!-- ABOUT SECTION -->
+  <section class="about">
 
-    <!-- ABOUT SECTION -->
-    <div class="about">
+    <!-- LEFT SIDE -->
+    <div class="left">
+      <div class="profile-pic"></div>
 
-      <div class="left">
-        <div class="profile-pic"></div>
-
-        <div class="socials">
-          <a href="https://www.linkedin.com/in/hammad-s" target="_blank" class="icon linkedin"></a>
-          <a href="https://github.com/Hammad-M-Sheikh" target="_blank" class="icon github"></a>
-        </div>
-      </div>
-
-      <div class="right">
-        <p>
-          I'm Hammad, a fifth-year undergraduate student focused on cybersecurity, privacy, and digital surveillance.
-          This site showcases my projects and work.
-        </p>
-      </div>
-
-    </div>
-
-    <h2>Projects</h2>
-
-    <div class="cards">
-      <div class="card">
-        <h3>Project 1</h3>
-        <p>Short description of your cybersecurity project.</p>
-      </div>
-
-      <div class="card">
-        <h3>Project 2</h3>
-        <p>Short description of your second project.</p>
+      <div class="socials">
+        <a href="https://www.linkedin.com/in/hammad-s" target="_blank" class="icon linkedin"></a>
+        <a href="https://github.com/Hammad-M-Sheikh" target="_blank" class="icon github"></a>
       </div>
     </div>
 
+    <!-- RIGHT SIDE -->
+    <div class="right">
+      <p>
+        I'm Hammad, a fifth-year undergraduate student focused on cybersecurity, privacy, and digital surveillance.
+        This site showcases my projects and work.
+      </p>
+    </div>
+
+  </section>
+
+  <!-- PROJECTS -->
+  <h2>Projects</h2>
+
+  <div class="cards">
+    <div class="card">
+      <h3>Project 1</h3>
+      <p>Short description of your cybersecurity project.</p>
+    </div>
+
+    <div class="card">
+      <h3>Project 2</h3>
+      <p>Short description of your second project.</p>
+    </div>
   </div>
+
 </div>
 
-<!-- STARS BACKGROUND -->
+<!-- Stars animation -->
 <script>
 const canvas = document.getElementById("stars");
 const ctx = canvas.getContext("2d");
 
-canvas.width = window.innerWidth;
-canvas.height = window.innerHeight;
+function resize() {
+  canvas.width = window.innerWidth;
+  canvas.height = window.innerHeight;
+}
+resize();
 
 const stars = [];
 
@@ -71,7 +76,7 @@ for (let i = 0; i < 120; i++) {
     y: Math.random() * canvas.height,
     r: Math.random() * 1.2,
     a: Math.random(),
-    d: Math.random() * 0.015
+    d: Math.random() * 0.015 + 0.005
   });
 }
 
@@ -93,10 +98,7 @@ function animate() {
 
 animate();
 
-window.addEventListener("resize", () => {
-  canvas.width = window.innerWidth;
-  canvas.height = window.innerHeight;
-});
+window.addEventListener("resize", resize);
 </script>
 
 </body>
