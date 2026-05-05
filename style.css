@@ -8,7 +8,6 @@
   background: radial-gradient(circle at top, #0b1020, #05060a);
 }
 
-/* dark overlay for readability */
 body::before {
   content: "";
   position: fixed;
@@ -24,36 +23,48 @@ body {
   color: #e5e7eb;
 }
 
-/* centered layout container */
-.content {
+/* CENTER LAYOUT */
+.container {
   max-width: 850px;
   margin: 0 auto;
   padding: 70px 20px;
 }
 
-/* ================= NAME ================= */
+/* ================= HEADER ALIGNMENT FIX ================= */
+/* 2-column grid: left column matches profile width */
+.header {
+  display: grid;
+  grid-template-columns: 140px 1fr;
+  align-items: end;
+  margin-bottom: 30px;
+}
+
+/* empty left space to align with profile column */
+.spacer {
+  width: 140px;
+}
+
+/* name now aligns perfectly with right column */
 .name {
   font-size: 2.8rem;
-  margin: 0 0 30px 160px; /* aligns with text column */
+  margin: 0;
   color: #ffffff;
 }
 
-/* ================= ABOUT SECTION ================= */
+/* ================= ABOUT ================= */
 .about {
-  display: flex;
+  display: grid;
+  grid-template-columns: 140px 1fr;
   gap: 30px;
-  align-items: flex-start;
 }
 
-/* left column */
+/* LEFT */
 .left {
-  width: 140px;
   display: flex;
   flex-direction: column;
   align-items: center;
 }
 
-/* profile image */
 .profile-pic {
   width: 140px;
   height: 140px;
@@ -62,7 +73,6 @@ body {
   border: 1px solid rgba(255,255,255,0.1);
 }
 
-/* socials */
 .socials {
   margin-top: 15px;
 }
@@ -92,11 +102,7 @@ body {
   filter: invert(90%);
 }
 
-/* right text */
-.right {
-  flex: 1;
-}
-
+/* RIGHT */
 .right p {
   margin: 0;
   line-height: 1.7;
