@@ -8,25 +8,35 @@
 
 <body>
 
-<!-- Star background -->
 <canvas id="stars"></canvas>
 
-<!-- Main content -->
 <div class="profile">
 
-  <div class="profile-pic"></div>
+  <!-- NAME ON TOP -->
+  <h1 class="name">Hammad Sheikh</h1>
 
-  <h1>Hammad Sheikh</h1>
+  <!-- TWO COLUMN ABOUT SECTION -->
+  <div class="about">
 
-  <div class="socials">
-    <a href="https://www.linkedin.com/in/hammad-s" target="_blank" class="icon linkedin"></a>
-    <a href="https://github.com/Hammad-M-Sheikh" target="_blank" class="icon github"></a>
+    <!-- LEFT: PROFILE IMAGE -->
+    <div class="left">
+      <div class="profile-pic"></div>
+
+      <div class="socials">
+        <a href="https://www.linkedin.com/in/hammad-s" target="_blank" class="icon linkedin"></a>
+        <a href="https://github.com/Hammad-M-Sheikh" target="_blank" class="icon github"></a>
+      </div>
+    </div>
+
+    <!-- RIGHT: TEXT -->
+    <div class="right">
+      <p>
+        I'm Hammad, a fifth-year undergraduate student focused on cybersecurity, privacy, and digital surveillance.
+        This site showcases my projects and work.
+      </p>
+    </div>
+
   </div>
-
-  <p class="intro">
-    I'm Hammad, a fifth-year undergraduate student focused on cybersecurity, privacy, and digital surveillance.
-    This site showcases my projects and work.
-  </p>
 
   <h2>Projects</h2>
 
@@ -46,7 +56,7 @@
 
 </div>
 
-<!-- Stars script -->
+<!-- STARS BACKGROUND -->
 <script>
 const canvas = document.getElementById("stars");
 const ctx = canvas.getContext("2d");
@@ -56,39 +66,33 @@ canvas.height = window.innerHeight;
 
 const stars = [];
 
-const STAR_COUNT = 120;
-
-// create stars
-for (let i = 0; i < STAR_COUNT; i++) {
+for (let i = 0; i < 120; i++) {
   stars.push({
     x: Math.random() * canvas.width,
     y: Math.random() * canvas.height,
-    radius: Math.random() * 1.2,
-    alpha: Math.random(),
-    speed: Math.random() * 0.015 + 0.005
+    r: Math.random() * 1.2,
+    a: Math.random(),
+    d: Math.random() * 0.015
   });
 }
 
-function drawStars() {
+function animate() {
   ctx.clearRect(0, 0, canvas.width, canvas.height);
 
-  for (let star of stars) {
-    star.alpha += star.speed;
-
-    if (star.alpha <= 0 || star.alpha >= 1) {
-      star.speed *= -1;
-    }
+  for (let s of stars) {
+    s.a += s.d;
+    if (s.a <= 0 || s.a >= 1) s.d *= -1;
 
     ctx.beginPath();
-    ctx.arc(star.x, star.y, star.radius, 0, Math.PI * 2);
-    ctx.fillStyle = `rgba(255, 255, 255, ${star.alpha})`;
+    ctx.arc(s.x, s.y, s.r, 0, Math.PI * 2);
+    ctx.fillStyle = `rgba(255,255,255,${s.a})`;
     ctx.fill();
   }
 
-  requestAnimationFrame(drawStars);
+  requestAnimationFrame(animate);
 }
 
-drawStars();
+animate();
 
 window.addEventListener("resize", () => {
   canvas.width = window.innerWidth;
