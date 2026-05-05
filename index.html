@@ -10,10 +10,17 @@
 
 <canvas id="stars"></canvas>
 
+<!-- STICKY NAV -->
+<nav class="nav">
+  <a href="#projects">Projects</a>
+  <a href="#experience">Experience</a>
+  <a href="#certs">Certifications</a>
+</nav>
+
 <div class="container">
 
   <!-- HERO -->
-  <div class="grid">
+  <div class="grid reveal">
 
     <div class="left">
       <div class="profile-pic"></div>
@@ -36,89 +43,109 @@
   </div>
 
   <!-- PROJECTS -->
-  <h2>Projects</h2>
+  <section id="projects" class="reveal">
+    <h2>Projects</h2>
 
-  <div class="cards">
-    <div class="card">
-      <h3>Project 1</h3>
-      <p>Short description of your cybersecurity project.</p>
+    <div class="cards">
+      <div class="card">
+        <h3>Project 1</h3>
+        <p>Short description of your cybersecurity project.</p>
+      </div>
+
+      <div class="card">
+        <h3>Project 2</h3>
+        <p>Short description of your second project.</p>
+      </div>
     </div>
+  </section>
 
-    <div class="card">
-      <h3>Project 2</h3>
-      <p>Short description of your second project.</p>
-    </div>
-  </div>
+  <!-- EXPERIENCE -->
+  <section id="experience" class="reveal">
+    <h2>Experience</h2>
 
-  <!-- EXPERIENCE & EDUCATION -->
-  <h2>Experience & Education</h2>
+    <div class="exp-grid">
 
-  <div class="exp-grid">
+      <!-- EXP 1 (COLLAPSIBLE) -->
+      <div class="frame collapsible">
 
-    <!-- EXPERIENCE -->
-    <div class="frame">
-      <h3 class="frame-title">Experience</h3>
-
-      <div class="timeline">
-
-        <div class="job">
-          <h4>Company Name — Position Title</h4>
+        <div class="collapse-header">
+          <h3>Company Name — Senior Role</h3>
           <span>2023 – Present</span>
         </div>
 
-        <div class="job">
-          <h4>Same Company — Previous Role</h4>
+        <div class="collapse-body">
+          <div class="job">
+            <h4>Role History</h4>
+            <p>Multiple roles held within the same company.</p>
+          </div>
+        </div>
+
+      </div>
+
+      <!-- EXP 2 -->
+      <div class="frame collapsible">
+
+        <div class="collapse-header">
+          <h3>Same Company — Previous Role</h3>
           <span>2022 – 2023</span>
         </div>
 
-      </div>
-    </div>
-
-    <!-- EDUCATION -->
-    <div class="frame">
-      <h3 class="frame-title align-left">Education</h3>
-
-      <div class="timeline">
-
-        <div class="job">
-          <h4>Your University</h4>
-          <span>2020 – 2025</span>
+        <div class="collapse-body">
+          <div class="job">
+            <h4>Earlier Position</h4>
+            <p>Internal progression within organization.</p>
+          </div>
         </div>
 
       </div>
-    </div>
 
-  </div>
+    </div>
+  </section>
+
+  <!-- EDUCATION -->
+  <section class="reveal">
+    <h2>Education</h2>
+
+    <div class="frame">
+      <div class="job">
+        <h4>Your University</h4>
+        <span>2020 – 2025</span>
+      </div>
+    </div>
+  </section>
 
   <!-- CERTIFICATIONS -->
-  <div class="cert-section">
+  <section id="certs" class="reveal">
+    <h2>Certifications</h2>
 
-    <div class="certs-frame">
-      <h3 class="frame-title">Certifications</h3>
+    <div class="cert-section">
 
-      <div class="certs">
-        <div class="cert">Certification 1</div>
-        <div class="cert">Certification 2</div>
-        <div class="cert">Certification 3</div>
-        <div class="cert">Certification 4</div>
+      <div class="certs-frame">
+        <h3 class="frame-title">Completed</h3>
+
+        <div class="certs">
+          <div class="cert">Certification 1</div>
+          <div class="cert">Certification 2</div>
+        </div>
       </div>
-    </div>
 
-    <div class="certs-frame working-on">
-      <h3 class="frame-title">Currently Working On</h3>
+      <div class="certs-frame working-on">
+        <h3 class="frame-title">Currently Working On</h3>
 
-      <div class="certs">
-        <div class="cert">Learning Cloud Security</div>
-        <div class="cert">Improving Pentesting Skills</div>
-        <div class="cert">Building Personal Projects</div>
+        <div class="certs">
+          <div class="cert">Cloud Security</div>
+          <div class="cert">Pentesting Practice</div>
+          <div class="cert">CTF Training</div>
+        </div>
       </div>
-    </div>
 
-  </div>
+    </div>
+  </section>
 
 </div>
 
 <script>
+/* ================= STARS ================= */
 const canvas = document.getElementById("stars");
 const ctx = canvas.getContext("2d");
 
@@ -158,6 +185,26 @@ function animate() {
 
 animate();
 window.addEventListener("resize", resize);
+
+/* ================= COLLAPSIBLE EXPERIENCE ================= */
+document.querySelectorAll(".collapsible").forEach(item => {
+  item.addEventListener("click", () => {
+    item.classList.toggle("open");
+  });
+});
+
+/* ================= FADE-IN SCROLL ANIMATION ================= */
+const observer = new IntersectionObserver(entries => {
+  entries.forEach(entry => {
+    if (entry.isIntersecting) {
+      entry.target.classList.add("show");
+    }
+  });
+}, { threshold: 0.15 });
+
+document.querySelectorAll(".reveal").forEach(el => {
+  observer.observe(el);
+});
 </script>
 
 </body>
