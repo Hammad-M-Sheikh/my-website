@@ -6,7 +6,6 @@
   background: radial-gradient(circle at top, #0b1020, #05060a);
 }
 
-/* OVERLAY */
 body::before {
   content: "";
   position: fixed;
@@ -39,11 +38,6 @@ body {
 .nav a {
   color: #cbd5e1;
   text-decoration: none;
-  font-size: 0.95rem;
-}
-
-.nav a:hover {
-  color: white;
 }
 
 /* ================= LAYOUT ================= */
@@ -53,13 +47,13 @@ body {
   padding: 110px 20px 70px;
 }
 
+/* HERO */
 .grid {
   display: grid;
   grid-template-columns: 140px 1fr;
   gap: 30px;
 }
 
-/* HERO */
 .profile-pic {
   width: 140px;
   height: 140px;
@@ -74,7 +68,6 @@ body {
 
 .intro {
   color: #cbd5e1;
-  line-height: 1.7;
 }
 
 /* SOCIALS */
@@ -83,34 +76,23 @@ body {
   height: 32px;
   display: inline-block;
   margin: 6px;
-  background-size: cover;
   filter: invert(90%);
 }
 
-/* ================= CARDS ================= */
-.cards {
+/* ================= SIDE BY SIDE GRID ================= */
+.side-grid {
   display: grid;
-  gap: 15px;
-}
-
-.card {
-  padding: 18px;
-  border-radius: 12px;
-  background: rgba(255,255,255,0.04);
-  border: 1px solid rgba(255,255,255,0.08);
-  transition: 0.25s;
-}
-
-.card:hover {
-  transform: translateY(-6px);
+  grid-template-columns: 1fr 1fr;
+  gap: 20px;
 }
 
 /* ================= FRAME ================= */
-.frame {
+.frame, .certs-frame {
   background: rgba(255,255,255,0.04);
+  border: 1px solid rgba(255,255,255,0.1);
   border-radius: 14px;
   padding: 16px;
-  border: 1px solid rgba(255,255,255,0.1);
+  backdrop-filter: blur(10px);
 }
 
 /* ================= COLLAPSIBLE ================= */
@@ -131,16 +113,18 @@ body {
 }
 
 .collapsible.open .collapse-body {
-  max-height: 200px;
+  max-height: 300px;
+  margin-top: 10px;
+}
+
+/* ================= JOB ================= */
+.job {
+  border-left: 2px solid rgba(255,255,255,0.2);
+  padding-left: 12px;
   margin-top: 10px;
 }
 
 /* ================= CERTS ================= */
-.cert-section {
-  display: grid;
-  gap: 20px;
-}
-
 .certs {
   display: flex;
   flex-wrap: wrap;
@@ -151,12 +135,21 @@ body {
   padding: 8px 12px;
   border-radius: 999px;
   background: rgba(255,255,255,0.06);
+  border: 1px solid rgba(255,255,255,0.12);
+  color: #e5e7eb;
+  text-decoration: none;
+  transition: 0.2s;
+}
+
+.cert:hover {
+  transform: translateY(-2px);
+  border-color: rgba(255,255,255,0.3);
 }
 
 /* ================= SCROLL ANIMATION ================= */
 .reveal {
   opacity: 0;
-  transform: translateY(20px);
+  transform: translateY(18px);
   transition: 0.6s ease;
 }
 
@@ -167,7 +160,7 @@ body {
 
 /* ================= MOBILE ================= */
 @media (max-width: 768px) {
-  .grid {
+  .grid, .side-grid {
     grid-template-columns: 1fr;
   }
 
