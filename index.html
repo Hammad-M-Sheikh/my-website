@@ -8,19 +8,19 @@
 
 <body>
 
-<!-- Background -->
 <canvas id="stars"></canvas>
 
-<!-- Page container -->
-<div class="content">
+<div class="container">
 
-  <!-- NAME (aligned with text column) -->
-  <h1 class="name">Hammad Sheikh</h1>
+  <!-- HEADER BLOCK (aligned properly now) -->
+  <div class="header">
+    <div class="spacer"></div>
+    <h1 class="name">Hammad Sheikh</h1>
+  </div>
 
   <!-- ABOUT SECTION -->
-  <section class="about">
+  <div class="about">
 
-    <!-- LEFT SIDE -->
     <div class="left">
       <div class="profile-pic"></div>
 
@@ -30,7 +30,6 @@
       </div>
     </div>
 
-    <!-- RIGHT SIDE -->
     <div class="right">
       <p>
         I'm Hammad, a fifth-year undergraduate student focused on cybersecurity, privacy, and digital surveillance.
@@ -38,7 +37,7 @@
       </p>
     </div>
 
-  </section>
+  </div>
 
   <!-- PROJECTS -->
   <h2>Projects</h2>
@@ -57,7 +56,7 @@
 
 </div>
 
-<!-- Stars animation -->
+<!-- STARS -->
 <script>
 const canvas = document.getElementById("stars");
 const ctx = canvas.getContext("2d");
