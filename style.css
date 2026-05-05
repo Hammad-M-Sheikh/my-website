@@ -101,7 +101,7 @@ body {
 
 /* GitHub */
 .github::before {
-  content: "⌘";
+  content: "Git";
   font-size: 16px;
 }
 /* HERO TEXT */
