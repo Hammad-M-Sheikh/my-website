@@ -10,7 +10,7 @@
 
 <canvas id="stars"></canvas>
 
-<!-- STICKY NAV -->
+<!-- NAV -->
 <nav class="nav">
   <a href="#projects">Projects</a>
   <a href="#experience">Experience</a>
@@ -35,8 +35,7 @@
       <h1 class="name">Hammad Sheikh</h1>
 
       <p class="intro">
-        I'm Hammad, a fifth-year undergraduate student focused on cybersecurity, privacy, and digital surveillance.
-        This site showcases my projects, experience, and education.
+        I'm Hammad, a cybersecurity-focused student interested in privacy, systems security, and digital surveillance.
       </p>
     </div>
 
@@ -49,97 +48,83 @@
     <div class="cards">
       <div class="card">
         <h3>Project 1</h3>
-        <p>Short description of your cybersecurity project.</p>
+        <p>Short description.</p>
       </div>
 
       <div class="card">
         <h3>Project 2</h3>
-        <p>Short description of your second project.</p>
+        <p>Short description.</p>
       </div>
     </div>
   </section>
 
-  <!-- EXPERIENCE -->
+  <!-- EXPERIENCE + EDUCATION (SIDE BY SIDE) -->
   <section id="experience" class="reveal">
-    <h2>Experience</h2>
+    <h2>Experience & Education</h2>
 
-    <div class="exp-grid">
+    <div class="side-grid">
 
-      <!-- EXP 1 (COLLAPSIBLE) -->
+      <!-- EXPERIENCE -->
       <div class="frame collapsible">
 
         <div class="collapse-header">
-          <h3>Company Name — Senior Role</h3>
-          <span>2023 – Present</span>
+          <h3>Experience</h3>
+          <span>Click to expand</span>
         </div>
 
         <div class="collapse-body">
+
           <div class="job">
-            <h4>Role History</h4>
-            <p>Multiple roles held within the same company.</p>
+            <h4>Company A — Role</h4>
+            <span>2023 – Present</span>
           </div>
-        </div>
 
-      </div>
-
-      <!-- EXP 2 -->
-      <div class="frame collapsible">
-
-        <div class="collapse-header">
-          <h3>Same Company — Previous Role</h3>
-          <span>2022 – 2023</span>
-        </div>
-
-        <div class="collapse-body">
           <div class="job">
-            <h4>Earlier Position</h4>
-            <p>Internal progression within organization.</p>
+            <h4>Company A — Previous Role</h4>
+            <span>2022 – 2023</span>
           </div>
+
+          <div class="job">
+            <h4>Company B — Role</h4>
+            <span>2021 – 2022</span>
+          </div>
+
+        </div>
+      </div>
+
+      <!-- EDUCATION -->
+      <div class="frame">
+
+        <h3>Education</h3>
+
+        <div class="job">
+          <h4>Your University</h4>
+          <span>2020 – 2025</span>
         </div>
 
       </div>
 
-    </div>
-  </section>
-
-  <!-- EDUCATION -->
-  <section class="reveal">
-    <h2>Education</h2>
-
-    <div class="frame">
-      <div class="job">
-        <h4>Your University</h4>
-        <span>2020 – 2025</span>
-      </div>
     </div>
   </section>
 
   <!-- CERTIFICATIONS -->
   <section id="certs" class="reveal">
+
     <h2>Certifications</h2>
 
-    <div class="cert-section">
+    <div class="certs-frame">
 
-      <div class="certs-frame">
-        <h3 class="frame-title">Completed</h3>
+      <div class="certs">
 
-        <div class="certs">
-          <div class="cert">Certification 1</div>
-          <div class="cert">Certification 2</div>
-        </div>
-      </div>
+        <a class="cert" href="https://example.com/cert1" target="_blank">Certification 1</a>
+        <a class="cert" href="https://example.com/cert2" target="_blank">Certification 2</a>
+        <a class="cert" href="https://example.com/cert3" target="_blank">Certification 3</a>
+        <a class="cert" href="https://example.com/cert4" target="_blank">Certification 4</a>
 
-      <div class="certs-frame working-on">
-        <h3 class="frame-title">Currently Working On</h3>
-
-        <div class="certs">
-          <div class="cert">Cloud Security</div>
-          <div class="cert">Pentesting Practice</div>
-          <div class="cert">CTF Training</div>
-        </div>
       </div>
 
     </div>
+
   </section>
 
 </div>
@@ -186,25 +171,21 @@ function animate() {
 animate();
 window.addEventListener("resize", resize);
 
-/* ================= COLLAPSIBLE EXPERIENCE ================= */
-document.querySelectorAll(".collapsible").forEach(item => {
-  item.addEventListener("click", () => {
-    item.classList.toggle("open");
+/* ================= COLLAPSE ================= */
+document.querySelectorAll(".collapsible").forEach(el => {
+  el.addEventListener("click", () => {
+    el.classList.toggle("open");
   });
 });
 
-/* ================= FADE-IN SCROLL ANIMATION ================= */
+/* ================= SCROLL REVEAL ================= */
 const observer = new IntersectionObserver(entries => {
-  entries.forEach(entry => {
-    if (entry.isIntersecting) {
-      entry.target.classList.add("show");
-    }
+  entries.forEach(e => {
+    if (e.isIntersecting) e.target.classList.add("show");
   });
 }, { threshold: 0.15 });
 
-document.querySelectorAll(".reveal").forEach(el => {
-  observer.observe(el);
-});
+document.querySelectorAll(".reveal").forEach(el => observer.observe(el));
 </script>
 
 </body>
