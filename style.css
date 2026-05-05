@@ -1,15 +1,14 @@
-/* BACKGROUND */
+/* ================= BACKGROUND ================= */
 #stars {
   position: fixed;
-  top: 0;
-  left: 0;
+  inset: 0;
   z-index: -2;
   width: 100%;
   height: 100%;
   background: radial-gradient(circle at top, #0b1020, #05060a);
 }
 
-/* overlay for readability */
+/* dark overlay for readability */
 body::before {
   content: "";
   position: fixed;
@@ -18,43 +17,43 @@ body::before {
   z-index: -1;
 }
 
-/* BASE */
+/* ================= BASE ================= */
 body {
   margin: 0;
   font-family: "Segoe UI", sans-serif;
   color: #e5e7eb;
 }
 
-/* MAIN WRAPPER */
-.profile {
+/* centered layout container */
+.content {
   max-width: 850px;
   margin: 0 auto;
   padding: 70px 20px;
 }
 
-/* NAME */
+/* ================= NAME ================= */
 .name {
   font-size: 2.8rem;
-  margin-bottom: 30px;
+  margin: 0 0 30px 160px; /* aligns with text column */
   color: #ffffff;
 }
 
-/* ABOUT SECTION (2 COLUMN LAYOUT) */
+/* ================= ABOUT SECTION ================= */
 .about {
   display: flex;
   gap: 30px;
   align-items: flex-start;
 }
 
-/* LEFT SIDE */
+/* left column */
 .left {
+  width: 140px;
   display: flex;
   flex-direction: column;
   align-items: center;
-  min-width: 160px;
 }
 
-/* PROFILE PIC */
+/* profile image */
 .profile-pic {
   width: 140px;
   height: 140px;
@@ -63,7 +62,7 @@ body {
   border: 1px solid rgba(255,255,255,0.1);
 }
 
-/* SOCIAL ICONS */
+/* socials */
 .socials {
   margin-top: 15px;
 }
@@ -74,13 +73,13 @@ body {
   display: inline-block;
   margin: 0 5px;
   background-size: cover;
-  opacity: 0.8;
+  opacity: 0.85;
   transition: 0.2s;
 }
 
 .icon:hover {
-  opacity: 1;
   transform: scale(1.1);
+  opacity: 1;
 }
 
 .linkedin {
@@ -93,15 +92,19 @@ body {
   filter: invert(90%);
 }
 
-/* RIGHT SIDE TEXT */
-.right p {
-  font-size: 1.05rem;
-  line-height: 1.7;
-  color: #cbd5e1;
-  margin: 0;
+/* right text */
+.right {
+  flex: 1;
 }
 
-/* PROJECTS */
+.right p {
+  margin: 0;
+  line-height: 1.7;
+  color: #cbd5e1;
+  font-size: 1.05rem;
+}
+
+/* ================= PROJECTS ================= */
 h2 {
   margin-top: 50px;
   font-size: 1.5rem;
