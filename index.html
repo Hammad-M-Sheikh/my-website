@@ -10,45 +10,50 @@
 
 <!-- Matrix background -->
 <canvas id="matrix"></canvas>
-<div class="overlay"></div>
 
+<!-- Terminal intro -->
+<div id="terminal">
+  <div id="terminal-text"></div><span class="cursor">█</span>
+</div>
+
+<!-- Main content -->
 <div class="profile">
 
-  <!-- Profile picture -->
+  <!-- Profile image placeholder -->
   <div class="profile-pic"></div>
 
   <h1>Hammad Sheikh</h1>
 
-    <!-- Social icons -->
-    <div class="socials">
-      <a href="https://www.linkedin.com/in/hammad-s" target="_blank" class="icon linkedin"></a>
-      <a href="https://github.com/Hammad-M-Sheikh" target="_blank" class="icon github"></a>
-    </div>
-
-    <p>
-      I'm Hammad, a fifth-year undergraduate student focused on cybersecurity, privacy, and digital surveillance. 
-      This site showcases my projects and work.
-    </p>
-
-    <h2>Projects</h2>
-    <div class="cards">
-
-      <div class="card">
-        <h3>Project 1</h3>
-        <p>Short description of your cybersecurity project.</p>
-      </div>
-
-      <div class="card">
-        <h3>Project 2</h3>
-        <p>Short description of your second project.</p>
-      </div>
-
-    </div>
-
+  <!-- Social icons -->
+  <div class="socials">
+    <a href="https://www.linkedin.com/in/hammad-s" target="_blank" class="icon linkedin"></a>
+    <a href="https://github.com/Hammad-M-Sheikh" target="_blank" class="icon github"></a>
   </div>
 
-<!-- Matrix script -->
+  <p class="intro">
+    I'm Hammad, a fifth-year undergraduate student focused on cybersecurity, privacy, and digital surveillance.
+    This site showcases my projects and work.
+  </p>
+
+  <h2>> Projects</h2>
+
+  <div class="cards">
+    <div class="card">
+      <h3>Project 1</h3>
+      <p>Description of your cybersecurity project.</p>
+    </div>
+
+    <div class="card">
+      <h3>Project 2</h3>
+      <p>Description of another project.</p>
+    </div>
+  </div>
+
+</div>
+
+<!-- Matrix + Terminal JS -->
 <script>
+/* ================= MATRIX BACKGROUND ================= */
 const canvas = document.getElementById("matrix");
 const ctx = canvas.getContext("2d");
 
@@ -63,8 +68,8 @@ const columns = canvas.width / fontSize;
 
 const drops = Array(Math.floor(columns)).fill(1);
 
-function draw() {
-  ctx.fillStyle = "rgba(0, 0, 0, 0.05)";
+function drawMatrix() {
+  ctx.fillStyle = "rgba(0, 0, 0, 0.08)";
   ctx.fillRect(0, 0, canvas.width, canvas.height);
 
   ctx.fillStyle = "rgba(0, 255, 136, 0.35)";
@@ -82,12 +87,37 @@ function draw() {
   }
 }
 
-setInterval(draw, 33);
+setInterval(drawMatrix, 33);
 
-window.addEventListener("resize", () => {
-  canvas.height = window.innerHeight;
-  canvas.width = window.innerWidth;
-});
+/* ================= TERMINAL INTRO ================= */
+const lines = [
+  "> Initializing system...",
+  "> Retrieving visitors personal information...",
+  "> Access granted.",
+];
+
+const terminalText = document.getElementById("terminal-text");
+let i = 0;
+
+function typeLine() {
+  if (i < lines.length) {
+    terminalText.innerHTML += lines[i] + "\n";
+    i++;
+    setTimeout(typeLine, 700);
+  } else {
+    setTimeout(() => {
+      document.getElementById("terminal").style.opacity = "0";
+      document.querySelector(".profile").style.opacity = "1";
+
+      setTimeout(() => {
+        document.getElementById("terminal").style.display = "none";
+      }, 1000);
+
+    }, 800);
+  }
+}
+
+window.onload = typeLine;
 </script>
 
 </body>
