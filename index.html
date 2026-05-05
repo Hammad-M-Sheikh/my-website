@@ -12,15 +12,21 @@
 
 <div class="container">
 
-  <!-- HEADER BLOCK (aligned properly now) -->
-  <div class="header">
-    <div class="spacer"></div>
+  <!-- GRID HEADER (THIS FIXES ALIGNMENT) -->
+  <div class="grid">
+
+    <!-- EMPTY LEFT COLUMN (keeps alignment correct) -->
+    <div></div>
+
+    <!-- NAME ALIGNS WITH RIGHT COLUMN -->
     <h1 class="name">Hammad Sheikh</h1>
+
   </div>
 
   <!-- ABOUT SECTION -->
-  <div class="about">
+  <div class="grid">
 
+    <!-- LEFT COLUMN -->
     <div class="left">
       <div class="profile-pic"></div>
 
@@ -30,6 +36,7 @@
       </div>
     </div>
 
+    <!-- RIGHT COLUMN -->
     <div class="right">
       <p>
         I'm Hammad, a fifth-year undergraduate student focused on cybersecurity, privacy, and digital surveillance.
@@ -39,7 +46,6 @@
 
   </div>
 
-  <!-- PROJECTS -->
   <h2>Projects</h2>
 
   <div class="cards">
@@ -56,7 +62,7 @@
 
 </div>
 
-<!-- STARS -->
+<!-- STARS BACKGROUND -->
 <script>
 const canvas = document.getElementById("stars");
 const ctx = canvas.getContext("2d");
@@ -96,7 +102,6 @@ function animate() {
 }
 
 animate();
-
 window.addEventListener("resize", resize);
 </script>
 
