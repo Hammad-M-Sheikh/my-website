@@ -67,20 +67,43 @@ body {
 }
 
 .icon {
-  width: 32px;
-  height: 32px;
-  display: inline-block;
+  width: 34px;
+  height: 34px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
   margin: 6px;
-  background-size: cover;
-  filter: invert(90%);
+
+  border-radius: 10px;
+
+  background: rgba(255,255,255,0.06);
+  border: 1px solid rgba(255,255,255,0.15);
+
+  color: #e5e7eb;
+  font-size: 18px;
+
+  text-decoration: none;
+
   transition: 0.2s ease;
 }
 
 .icon:hover {
-  transform: scale(1.15);
-  opacity: 1;
+  transform: translateY(-2px);
+  border-color: rgba(255,255,255,0.35);
+  background: rgba(255,255,255,0.1);
 }
 
+/* LinkedIn */
+.linkedin::before {
+  content: "in";
+  font-weight: 600;
+}
+
+/* GitHub */
+.github::before {
+  content: "⌘";
+  font-size: 16px;
+}
 /* HERO TEXT */
 .name {
   font-size: 2.8rem;
