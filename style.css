@@ -1,52 +1,177 @@
-/* ================= SPACING FIX ================= */
-h2 {
-  margin-top: 60px;
+/* ================= BACKGROUND ================= */
+#stars {
+  position: fixed;
+  inset: 0;
+  z-index: -2;
+  background: radial-gradient(circle at top, #0b1020, #05060a);
 }
 
-/* add extra separation before certifications */
+/* OVERLAY */
+body::before {
+  content: "";
+  position: fixed;
+  inset: 0;
+  background: rgba(0,0,0,0.45);
+  z-index: -1;
+}
+
+/* ================= BASE ================= */
+body {
+  margin: 0;
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto;
+  color: #e5e7eb;
+}
+
+/* ================= NAV ================= */
+.nav {
+  position: fixed;
+  top: 0;
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  gap: 25px;
+  padding: 14px;
+  background: rgba(10,10,20,0.6);
+  backdrop-filter: blur(10px);
+  z-index: 1000;
+}
+
+.nav a {
+  color: #cbd5e1;
+  text-decoration: none;
+  font-size: 0.95rem;
+}
+
+.nav a:hover {
+  color: white;
+}
+
+/* ================= LAYOUT ================= */
+.container {
+  max-width: 900px;
+  margin: 0 auto;
+  padding: 110px 20px 70px;
+}
+
+.grid {
+  display: grid;
+  grid-template-columns: 140px 1fr;
+  gap: 30px;
+}
+
+/* HERO */
+.profile-pic {
+  width: 140px;
+  height: 140px;
+  border-radius: 50%;
+  background: #1f2937;
+}
+
+.name {
+  font-size: 2.8rem;
+  margin: 0 0 10px;
+}
+
+.intro {
+  color: #cbd5e1;
+  line-height: 1.7;
+}
+
+/* SOCIALS */
+.icon {
+  width: 32px;
+  height: 32px;
+  display: inline-block;
+  margin: 6px;
+  background-size: cover;
+  filter: invert(90%);
+}
+
+/* ================= CARDS ================= */
+.cards {
+  display: grid;
+  gap: 15px;
+}
+
+.card {
+  padding: 18px;
+  border-radius: 12px;
+  background: rgba(255,255,255,0.04);
+  border: 1px solid rgba(255,255,255,0.08);
+  transition: 0.25s;
+}
+
+.card:hover {
+  transform: translateY(-6px);
+}
+
+/* ================= FRAME ================= */
+.frame {
+  background: rgba(255,255,255,0.04);
+  border-radius: 14px;
+  padding: 16px;
+  border: 1px solid rgba(255,255,255,0.1);
+}
+
+/* ================= COLLAPSIBLE ================= */
+.collapsible {
+  cursor: pointer;
+}
+
+.collapse-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.collapse-body {
+  max-height: 0;
+  overflow: hidden;
+  transition: 0.4s ease;
+}
+
+.collapsible.open .collapse-body {
+  max-height: 200px;
+  margin-top: 10px;
+}
+
+/* ================= CERTS ================= */
 .cert-section {
-  margin-top: 40px;
   display: grid;
   gap: 20px;
 }
 
-/* ================= LEFT ALIGN EDUCATION TITLE ================= */
-.align-left {
-  text-align: left;
-  margin-left: 0;
-}
-
-/* ================= CERTIFICATIONS LAYOUT ================= */
-.certs-frame {
-  background: rgba(255,255,255,0.04);
-  border: 1px solid rgba(255,255,255,0.10);
-  border-radius: 16px;
-  padding: 20px;
-  backdrop-filter: blur(10px);
-}
-
-/* "Currently working on" styling slightly distinct */
-.working-on {
-  border: 1px solid rgba(255,255,255,0.15);
-  background: rgba(255,255,255,0.03);
-}
-
-/* keep spacing between sections tight but readable */
 .certs {
   display: flex;
   flex-wrap: wrap;
-  gap: 12px;
+  gap: 10px;
 }
 
 .cert {
-  padding: 10px 14px;
+  padding: 8px 12px;
   border-radius: 999px;
   background: rgba(255,255,255,0.06);
-  border: 1px solid rgba(255,255,255,0.12);
-  transition: 0.2s;
 }
 
-.cert:hover {
-  transform: translateY(-2px);
-  border-color: rgba(255,255,255,0.3);
+/* ================= SCROLL ANIMATION ================= */
+.reveal {
+  opacity: 0;
+  transform: translateY(20px);
+  transition: 0.6s ease;
+}
+
+.reveal.show {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* ================= MOBILE ================= */
+@media (max-width: 768px) {
+  .grid {
+    grid-template-columns: 1fr;
+  }
+
+  .nav {
+    font-size: 0.85rem;
+  }
 }
