@@ -1,135 +1,23 @@
-#stars {
-  position: fixed;
-  inset: 0;
-  z-index: -2;
-  width: 100%;
-  height: 100%;
-  background: radial-gradient(circle at top, #0b1020, #05060a);
-}
-
-body::before {
-  content: "";
-  position: fixed;
-  inset: 0;
-  background: rgba(0, 0, 0, 0.45);
-  z-index: -1;
-}
-
-/* ================= BASE ================= */
-body {
-  margin: 0;
-  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
-  color: #e5e7eb;
-}
-
-/* ================= LAYOUT ================= */
-.container {
-  max-width: 900px;
-  margin: 0 auto;
-  padding: 110px 20px 70px;
-}
-
-/* HERO GRID */
-.grid {
-  display: grid;
-  grid-template-columns: 140px 1fr;
-  gap: 30px;
-  align-items: start;
-}
-
-/* LEFT */
-.left {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-}
-
-.profile-pic {
-  width: 140px;
-  height: 140px;
-  border-radius: 50%;
-  background: linear-gradient(145deg, #1f2937, #111827);
-  border: 1px solid rgba(255,255,255,0.1);
-}
-
-.socials {
-  margin-top: 15px;
-}
-
-.icon {
-  width: 32px;
-  height: 32px;
-  display: inline-block;
-  margin: 0 5px;
-  background-size: cover;
-  opacity: 0.85;
-  transition: 0.2s ease;
-}
-
-.icon:hover {
-  transform: scale(1.15);
-  opacity: 1;
-}
-
-.linkedin {
-  background-image: url("https://cdn.jsdelivr.net/gh/simple-icons/simple-icons/icons/linkedin.svg");
-  filter: invert(90%);
-}
-
-.github {
-  background-image: url("https://cdn.jsdelivr.net/gh/simple-icons/simple-icons/icons/github.svg");
-  filter: invert(90%);
-}
-
-/* RIGHT */
-.name {
-  font-size: 2.8rem;
-  margin: 0 0 10px 0;
-}
-
-.intro {
-  margin: 0;
-  line-height: 1.7;
-  color: #cbd5e1;
-  font-size: 1.05rem;
-}
-
-/* ================= PROJECTS ================= */
+/* ================= SPACING FIX ================= */
 h2 {
   margin-top: 60px;
 }
 
-/* CARDS */
-.cards {
+/* add extra separation before certifications */
+.cert-section {
+  margin-top: 40px;
   display: grid;
-  gap: 15px;
-  margin-top: 20px;
-}
-
-.card {
-  padding: 18px;
-  border-radius: 12px;
-  background: rgba(255,255,255,0.04);
-  border: 1px solid rgba(255,255,255,0.08);
-  transition: 0.25s ease;
-}
-
-.card:hover {
-  transform: translateY(-6px);
-  border-color: rgba(255,255,255,0.25);
-  box-shadow: 0 10px 25px rgba(0,0,0,0.4);
-}
-
-/* ================= EXPERIENCE ================= */
-.exp-grid {
-  display: grid;
-  grid-template-columns: 1fr 1fr;
   gap: 20px;
-  margin-top: 20px;
 }
 
-/* FRAME */
-.frame, .certs-frame {
+/* ================= LEFT ALIGN EDUCATION TITLE ================= */
+.align-left {
+  text-align: left;
+  margin-left: 0;
+}
+
+/* ================= CERTIFICATIONS LAYOUT ================= */
+.certs-frame {
   background: rgba(255,255,255,0.04);
   border: 1px solid rgba(255,255,255,0.10);
   border-radius: 16px;
@@ -137,50 +25,13 @@ h2 {
   backdrop-filter: blur(10px);
 }
 
-.frame-title {
-  margin: 0 0 15px 0;
+/* "Currently working on" styling slightly distinct */
+.working-on {
+  border: 1px solid rgba(255,255,255,0.15);
+  background: rgba(255,255,255,0.03);
 }
 
-/* TIMELINE */
-.timeline {
-  display: flex;
-  flex-direction: column;
-  gap: 18px;
-}
-
-.job {
-  position: relative;
-  padding-left: 14px;
-  border-left: 2px solid rgba(255,255,255,0.2);
-}
-
-.job::before {
-  content: "";
-  position: absolute;
-  left: -6px;
-  top: 6px;
-  width: 10px;
-  height: 10px;
-  border-radius: 50%;
-  background: #fff;
-}
-
-.job h4 {
-  margin: 0;
-}
-
-.job span {
-  font-size: 0.85rem;
-  color: #9ca3af;
-}
-
-.job ul {
-  margin: 8px 0 0;
-  padding-left: 18px;
-  color: #cbd5e1;
-}
-
-/* ================= CERTS ================= */
+/* keep spacing between sections tight but readable */
 .certs {
   display: flex;
   flex-wrap: wrap;
@@ -198,23 +49,4 @@ h2 {
 .cert:hover {
   transform: translateY(-2px);
   border-color: rgba(255,255,255,0.3);
-}
-
-/* ================= MOBILE ================= */
-@media (max-width: 768px) {
-  .grid {
-    grid-template-columns: 1fr;
-  }
-
-  .exp-grid {
-    grid-template-columns: 1fr;
-  }
-
-  .name {
-    text-align: center;
-  }
-
-  .intro {
-    text-align: center;
-  }
 }
