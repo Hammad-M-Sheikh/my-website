@@ -19,41 +19,26 @@ body::before {
 /* ================= BASE ================= */
 body {
   margin: 0;
-  font-family: "Segoe UI", sans-serif;
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
   color: #e5e7eb;
 }
 
-/* MAIN WRAPPER */
+/* MAIN LAYOUT */
 .container {
   max-width: 850px;
   margin: 0 auto;
-  padding: 110px 20px 70px; /* 🔥 pushes everything DOWN to align with avatar */
+  padding: 110px 20px 70px;
 }
 
-/* ================= GRID ================= */
+/* 🔥 CRITICAL FIX: shared alignment grid */
 .grid {
   display: grid;
   grid-template-columns: 140px 1fr;
   gap: 30px;
+  align-items: start;
 }
 
-/* header spacing alignment fix */
-.header {
-  margin-bottom: 10px;
-}
-
-/* NAME aligned with content column */
-.name {
-  font-size: 2.8rem;
-  margin: 0;
-}
-
-/* ================= ABOUT ================= */
-.about {
-  margin-top: 20px;
-}
-
-/* LEFT */
+/* ================= LEFT COLUMN ================= */
 .left {
   display: flex;
   flex-direction: column;
@@ -97,8 +82,21 @@ body {
   filter: invert(90%);
 }
 
-/* RIGHT */
-.right p {
+/* ================= RIGHT COLUMN ================= */
+.right {
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+}
+
+/* NAME aligned with top of profile picture */
+.name {
+  font-size: 2.8rem;
+  margin: 0 0 12px 0;
+}
+
+/* ABOUT TEXT */
+.intro {
   margin: 0;
   line-height: 1.7;
   color: #cbd5e1;
@@ -111,13 +109,13 @@ h2 {
   font-size: 1.5rem;
 }
 
-/* ================= CARDS ================= */
 .cards {
   margin-top: 20px;
   display: grid;
   gap: 15px;
 }
 
+/* 🔥 restored hover animation */
 .card {
   padding: 18px;
   border-radius: 12px;
@@ -126,7 +124,6 @@ h2 {
   transition: 0.25s ease;
 }
 
-/* 🔥 RESTORED HOVER ANIMATION */
 .card:hover {
   transform: translateY(-6px);
   border-color: rgba(255,255,255,0.25);
