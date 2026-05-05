@@ -253,3 +253,40 @@ h2 {
   background: linear-gradient(90deg, #7dd3fc, #a78bfa);
   transition: width 0.6s ease;
 }
+
+/* spacing between companies */
+.company {
+  margin-top: 15px;
+  padding: 12px;
+  border-radius: 10px;
+  background: rgba(255,255,255,0.03);
+  border: 1px solid rgba(255,255,255,0.08);
+}
+
+/* nicer header layout */
+.company .collapse-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  cursor: pointer;
+}
+
+/* roles */
+.role {
+  margin-top: 10px;
+  padding-left: 10px;
+  border-left: 2px solid rgba(255,255,255,0.15);
+}
+
+.role-header {
+  display: flex;
+  justify-content: space-between;
+  font-size: 0.95rem;
+}
+
+/* description */
+.job-desc {
+  margin-top: 4px;
+  font-size: 0.85rem;
+  color: #9ca3af;
+}
