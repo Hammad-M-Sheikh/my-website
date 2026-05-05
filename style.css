@@ -161,7 +161,7 @@ h2 {
 .collapse-body {
   max-height: 0;
   overflow: hidden;
-  transition: 0.4s ease;
+  transition: height 0.3s ease;
 }
 
 .collapsible.open .collapse-body {
