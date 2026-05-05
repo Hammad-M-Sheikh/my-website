@@ -1,4 +1,3 @@
-/* ================= BACKGROUND ================= */
 #stars {
   position: fixed;
   inset: 0;
@@ -23,14 +22,14 @@ body {
   color: #e5e7eb;
 }
 
-/* MAIN LAYOUT */
+/* ================= LAYOUT ================= */
 .container {
-  max-width: 850px;
+  max-width: 900px;
   margin: 0 auto;
   padding: 110px 20px 70px;
 }
 
-/* 🔥 CRITICAL FIX: shared alignment grid */
+/* HERO GRID */
 .grid {
   display: grid;
   grid-template-columns: 140px 1fr;
@@ -38,7 +37,7 @@ body {
   align-items: start;
 }
 
-/* ================= LEFT COLUMN ================= */
+/* LEFT */
 .left {
   display: flex;
   flex-direction: column;
@@ -82,20 +81,12 @@ body {
   filter: invert(90%);
 }
 
-/* ================= RIGHT COLUMN ================= */
-.right {
-  display: flex;
-  flex-direction: column;
-  justify-content: flex-start;
-}
-
-/* NAME aligned with top of profile picture */
+/* RIGHT */
 .name {
   font-size: 2.8rem;
-  margin: 0 0 12px 0;
+  margin: 0 0 10px 0;
 }
 
-/* ABOUT TEXT */
 .intro {
   margin: 0;
   line-height: 1.7;
@@ -106,16 +97,15 @@ body {
 /* ================= PROJECTS ================= */
 h2 {
   margin-top: 60px;
-  font-size: 1.5rem;
 }
 
+/* CARDS */
 .cards {
-  margin-top: 20px;
   display: grid;
   gap: 15px;
+  margin-top: 20px;
 }
 
-/* 🔥 restored hover animation */
 .card {
   padding: 18px;
   border-radius: 12px;
@@ -130,57 +120,101 @@ h2 {
   box-shadow: 0 10px 25px rgba(0,0,0,0.4);
 }
 
-.card h3 {
-  margin: 0 0 8px 0;
+/* ================= EXPERIENCE ================= */
+.exp-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 20px;
+  margin-top: 20px;
 }
 
-/* ================= MOBILE RESPONSIVE ================= */
+/* FRAME */
+.frame, .certs-frame {
+  background: rgba(255,255,255,0.04);
+  border: 1px solid rgba(255,255,255,0.10);
+  border-radius: 16px;
+  padding: 20px;
+  backdrop-filter: blur(10px);
+}
+
+.frame-title {
+  margin: 0 0 15px 0;
+}
+
+/* TIMELINE */
+.timeline {
+  display: flex;
+  flex-direction: column;
+  gap: 18px;
+}
+
+.job {
+  position: relative;
+  padding-left: 14px;
+  border-left: 2px solid rgba(255,255,255,0.2);
+}
+
+.job::before {
+  content: "";
+  position: absolute;
+  left: -6px;
+  top: 6px;
+  width: 10px;
+  height: 10px;
+  border-radius: 50%;
+  background: #fff;
+}
+
+.job h4 {
+  margin: 0;
+}
+
+.job span {
+  font-size: 0.85rem;
+  color: #9ca3af;
+}
+
+.job ul {
+  margin: 8px 0 0;
+  padding-left: 18px;
+  color: #cbd5e1;
+}
+
+/* ================= CERTS ================= */
+.certs {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 12px;
+}
+
+.cert {
+  padding: 10px 14px;
+  border-radius: 999px;
+  background: rgba(255,255,255,0.06);
+  border: 1px solid rgba(255,255,255,0.12);
+  transition: 0.2s;
+}
+
+.cert:hover {
+  transform: translateY(-2px);
+  border-color: rgba(255,255,255,0.3);
+}
+
+/* ================= MOBILE ================= */
 @media (max-width: 768px) {
-
-  .container {
-    padding: 70px 16px 50px;
-  }
-
-  /* Stack grid vertically on mobile */
   .grid {
     grid-template-columns: 1fr;
-    gap: 20px;
   }
 
-  /* Center profile section */
-  .left {
-    flex-direction: row;
-    justify-content: center;
-    gap: 15px;
+  .exp-grid {
+    grid-template-columns: 1fr;
   }
 
-  .profile-pic {
-    width: 110px;
-    height: 110px;
-  }
-
-  /* Name becomes centered */
   .name {
     text-align: center;
-    font-size: 2.2rem;
-    margin-bottom: 10px;
   }
 
-  /* About text centered for readability */
   .intro {
     text-align: center;
-  }
-
-  /* Center socials under avatar */
-  .socials {
-    margin-top: 0;
-  }
-
-  h2 {
-    text-align: center;
-  }
-
-  .cards {
-    padding: 0;
   }
 }
