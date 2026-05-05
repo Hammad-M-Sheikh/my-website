@@ -273,19 +273,32 @@ document.querySelectorAll(".collapsible").forEach(container => {
     if (isOpen) {
       // collapse
       body.style.height = body.scrollHeight + "px";
+
       requestAnimationFrame(() => {
         body.style.height = "0px";
       });
+
       container.classList.remove("open");
+
     } else {
       // expand
-      body.style.height = body.scrollHeight + "px";
+      body.style.height = "auto";
+      const fullHeight = body.scrollHeight;
+
+      body.style.height = "0px";
+
+      requestAnimationFrame(() => {
+        body.style.height = fullHeight + "px";
+      });
+
       container.classList.add("open");
 
-      // reset to auto after animation
+      // clean up after animation
       setTimeout(() => {
-        body.style.height = "auto";
-      }, 300);
+        if (container.classList.contains("open")) {
+          body.style.height = "auto";
+        }
+      }, 350);
     }
   });
 });
