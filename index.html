@@ -12,6 +12,7 @@
 
 <!-- NAV -->
 <nav class="nav">
+  <a href="#working">Working On</a>
   <a href="#projects">Projects</a>
   <a href="#experience">Experience</a>
   <a href="#certs">Certifications</a>
@@ -25,6 +26,7 @@
     <div class="left">
       <div class="profile-pic"></div>
 
+      <!-- RESTORED SOCIAL ICONS -->
       <div class="socials">
         <a href="https://www.linkedin.com/in/hammad-s" target="_blank" class="icon linkedin"></a>
         <a href="https://github.com/Hammad-M-Sheikh" target="_blank" class="icon github"></a>
@@ -40,6 +42,17 @@
     </div>
 
   </div>
+
+  <!-- WORKING ON (MOVED ABOVE PROJECTS) -->
+  <section id="working" class="reveal">
+    <h2>Currently Working On</h2>
+
+    <div class="cards">
+      <div class="card">Cloud Security Fundamentals</div>
+      <div class="card">Pentesting Practice Labs</div>
+      <div class="card">Personal Security Toolkit Project</div>
+    </div>
+  </section>
 
   <!-- PROJECTS -->
   <section id="projects" class="reveal">
@@ -58,7 +71,7 @@
     </div>
   </section>
 
-  <!-- EXPERIENCE + EDUCATION (SIDE BY SIDE) -->
+  <!-- EXPERIENCE + EDUCATION -->
   <section id="experience" class="reveal">
     <h2>Experience & Education</h2>
 
@@ -84,24 +97,17 @@
             <span>2022 – 2023</span>
           </div>
 
-          <div class="job">
-            <h4>Company B — Role</h4>
-            <span>2021 – 2022</span>
-          </div>
-
         </div>
       </div>
 
       <!-- EDUCATION -->
       <div class="frame">
-
         <h3>Education</h3>
 
         <div class="job">
           <h4>Your University</h4>
           <span>2020 – 2025</span>
         </div>
-
       </div>
 
     </div>
@@ -109,7 +115,6 @@
 
   <!-- CERTIFICATIONS -->
   <section id="certs" class="reveal">
-
     <h2>Certifications</h2>
 
     <div class="certs-frame">
@@ -171,14 +176,14 @@ function animate() {
 animate();
 window.addEventListener("resize", resize);
 
-/* ================= COLLAPSE ================= */
+/* COLLAPSE */
 document.querySelectorAll(".collapsible").forEach(el => {
   el.addEventListener("click", () => {
     el.classList.toggle("open");
   });
 });
 
-/* ================= SCROLL REVEAL ================= */
+/* SCROLL ANIMATION */
 const observer = new IntersectionObserver(entries => {
   entries.forEach(e => {
     if (e.isIntersecting) e.target.classList.add("show");
