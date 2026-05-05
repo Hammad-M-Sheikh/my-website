@@ -1,12 +1,15 @@
 /* ================= BACKGROUND ================= */
-#matrix {
+#stars {
   position: fixed;
   top: 0;
   left: 0;
+  width: 100%;
+  height: 100%;
   z-index: -2;
+  background: radial-gradient(circle at top, #0c1022, #070812);
 }
 
-/* Dark overlay for readability */
+/* subtle overlay for readability */
 body::before {
   content: "";
   position: fixed;
@@ -14,16 +17,15 @@ body::before {
   left: 0;
   width: 100%;
   height: 100%;
-  background: rgba(0, 0, 0, 0.7);
+  background: rgba(0, 0, 0, 0.45);
   z-index: -1;
 }
 
 /* ================= BASE ================= */
 body {
   margin: 0;
-  font-family: "Courier New", monospace;
-  background: black;
-  color: #d1fae5;
+  font-family: "Segoe UI", Tahoma, sans-serif;
+  color: #e5e7eb;
   text-align: center;
   overflow-x: hidden;
 }
@@ -32,9 +34,7 @@ body {
 .profile {
   max-width: 800px;
   margin: 0 auto;
-  padding: 60px 20px;
-  position: relative;
-  z-index: 1;
+  padding: 70px 20px;
 }
 
 .profile-pic {
@@ -42,20 +42,20 @@ body {
   height: 140px;
   margin: 0 auto 20px;
   border-radius: 50%;
-  border: 2px solid #00ff88;
-  background: rgba(0, 255, 136, 0.05);
-  box-shadow: 0 0 20px #00ff88;
+  background: linear-gradient(145deg, #1f2937, #111827);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  box-shadow: 0 0 25px rgba(255, 255, 255, 0.05);
 }
 
 h1 {
-  font-size: 2.5rem;
+  font-size: 2.6rem;
   margin-bottom: 10px;
-  text-shadow: 0 0 10px #00ff88;
+  color: #f9fafb;
 }
 
 .intro {
   color: #cbd5e1;
-  line-height: 1.6;
+  line-height: 1.7;
   margin-bottom: 30px;
 }
 
@@ -66,55 +66,58 @@ h1 {
 
 .icon {
   display: inline-block;
-  width: 35px;
-  height: 35px;
+  width: 34px;
+  height: 34px;
   margin: 0 10px;
   background-size: cover;
-  filter: invert(80%) sepia(100%) saturate(300%) hue-rotate(90deg);
-  transition: transform 0.2s ease;
+  opacity: 0.85;
+  transition: transform 0.2s ease, opacity 0.2s ease;
 }
 
 .icon:hover {
-  transform: scale(1.2);
+  transform: scale(1.15);
+  opacity: 1;
 }
 
 .linkedin {
   background-image: url("https://cdn.jsdelivr.net/gh/simple-icons/simple-icons/icons/linkedin.svg");
+  filter: invert(90%);
 }
 
 .github {
   background-image: url("https://cdn.jsdelivr.net/gh/simple-icons/simple-icons/icons/github.svg");
+  filter: invert(90%);
 }
 
 /* ================= PROJECTS ================= */
 h2 {
   margin-top: 40px;
-  color: #00ff88;
-  text-shadow: 0 0 8px #00ff88;
+  font-size: 1.4rem;
+  color: #f3f4f6;
 }
 
 .cards {
   display: grid;
-  gap: 15px;
+  gap: 16px;
   margin-top: 20px;
 }
 
 .card {
-  background: rgba(0, 255, 136, 0.05);
-  border: 1px solid rgba(0, 255, 136, 0.3);
+  background: rgba(255, 255, 255, 0.04);
+  border: 1px solid rgba(255, 255, 255, 0.08);
   padding: 20px;
-  border-radius: 10px;
+  border-radius: 14px;
   text-align: left;
-  transition: 0.2s;
+  transition: 0.2s ease;
+  backdrop-filter: blur(6px);
 }
 
 .card:hover {
-  transform: translateY(-5px);
-  border-color: #00ff88;
-  box-shadow: 0 0 15px #00ff88;
+  transform: translateY(-4px);
+  border-color: rgba(255, 255, 255, 0.2);
 }
 
 .card h3 {
   margin-top: 0;
-  color: #00ff88;
+  color: #ffffff;
 }
