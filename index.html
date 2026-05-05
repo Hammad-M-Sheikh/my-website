@@ -1,22 +1,27 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
+  <meta charset="UTF-8">
   <title>Hammad Sheikh</title>
   <link rel="stylesheet" href="style.css">
 </head>
+
 <body>
 
-  <div class="profile">
+<!-- Matrix background -->
+<canvas id="matrix"></canvas>
 
-    <!-- Profile picture -->
-    <div class="profile-pic"></div>
+<div class="profile">
 
-    <h1>Hammad Sheikh</h1>
+  <!-- Profile picture -->
+  <div class="profile-pic"></div>
+
+  <h1>Hammad Sheikh</h1>
 
     <!-- Social icons -->
     <div class="socials">
-      <a href="https://www.linkedin.com/in/hammad-s" target="_blank" class="icon linkedin" aria-label="LinkedIn"></a>
-      <a href="https://github.com/Hammad-M-Sheikh" target="_blank" class="icon github" aria-label="GitHub"></a>
+      <a href="https://www.linkedin.com/in/hammad-s" target="_blank" class="icon linkedin"></a>
+      <a href="https://github.com/Hammad-M-Sheikh" target="_blank" class="icon github"></a>
     </div>
 
     <p>
@@ -41,4 +46,48 @@
 
   </div>
 
+<!-- Matrix script -->
+<script>
+const canvas = document.getElementById("matrix");
+const ctx = canvas.getContext("2d");
+
+canvas.height = window.innerHeight;
+canvas.width = window.innerWidth;
+
+const letters = "ABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789@#$%^&*()*&^%";
+const lettersArray = letters.split("");
+
+const fontSize = 14;
+const columns = canvas.width / fontSize;
+
+const drops = Array(Math.floor(columns)).fill(1);
+
+function draw() {
+  ctx.fillStyle = "rgba(0, 0, 0, 0.05)";
+  ctx.fillRect(0, 0, canvas.width, canvas.height);
+
+  ctx.fillStyle = "#00ff88";
+  ctx.font = fontSize + "px monospace";
+
+  for (let i = 0; i < drops.length; i++) {
+    const text = lettersArray[Math.floor(Math.random() * lettersArray.length)];
+    ctx.fillText(text, i * fontSize, drops[i] * fontSize);
+
+    if (drops[i] * fontSize > canvas.height && Math.random() > 0.975) {
+      drops[i] = 0;
+    }
+
+    drops[i]++;
+  }
+}
+
+setInterval(draw, 33);
+
+window.addEventListener("resize", () => {
+  canvas.height = window.innerHeight;
+  canvas.width = window.innerWidth;
+});
+</script>
+
 </body>
+</html>
