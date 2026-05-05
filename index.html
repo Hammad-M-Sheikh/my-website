@@ -8,8 +8,8 @@
 
 <body>
 
-<!-- Matrix background -->
-<canvas id="matrix"></canvas>
+<!-- Star background -->
+<canvas id="stars"></canvas>
 
 <!-- Main content -->
 <div class="profile">
@@ -28,7 +28,7 @@
     This site showcases my projects and work.
   </p>
 
-  <h2>> Projects</h2>
+  <h2>Projects</h2>
 
   <div class="cards">
 
@@ -46,46 +46,53 @@
 
 </div>
 
-<!-- Matrix script -->
+<!-- Stars script -->
 <script>
-const canvas = document.getElementById("matrix");
+const canvas = document.getElementById("stars");
 const ctx = canvas.getContext("2d");
 
-canvas.height = window.innerHeight;
 canvas.width = window.innerWidth;
+canvas.height = window.innerHeight;
 
-const letters = "ABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789@#$%^&*()*&^%";
-const lettersArray = letters.split("");
+const stars = [];
 
-const fontSize = 14;
-const columns = canvas.width / fontSize;
+const STAR_COUNT = 120;
 
-const drops = Array(Math.floor(columns)).fill(1);
-
-function drawMatrix() {
-  ctx.fillStyle = "rgba(0, 0, 0, 0.08)";
-  ctx.fillRect(0, 0, canvas.width, canvas.height);
-
-  ctx.fillStyle = "rgba(0, 255, 136, 0.25)";
-  ctx.font = fontSize + "px monospace";
-
-  for (let i = 0; i < drops.length; i++) {
-    const text = lettersArray[Math.floor(Math.random() * lettersArray.length)];
-    ctx.fillText(text, i * fontSize, drops[i] * fontSize);
-
-    if (drops[i] * fontSize > canvas.height && Math.random() > 0.975) {
-      drops[i] = 0;
-    }
-
-    drops[i]++;
-  }
+// create stars
+for (let i = 0; i < STAR_COUNT; i++) {
+  stars.push({
+    x: Math.random() * canvas.width,
+    y: Math.random() * canvas.height,
+    radius: Math.random() * 1.2,
+    alpha: Math.random(),
+    speed: Math.random() * 0.015 + 0.005
+  });
 }
 
-setInterval(drawMatrix, 33);
+function drawStars() {
+  ctx.clearRect(0, 0, canvas.width, canvas.height);
+
+  for (let star of stars) {
+    star.alpha += star.speed;
+
+    if (star.alpha <= 0 || star.alpha >= 1) {
+      star.speed *= -1;
+    }
+
+    ctx.beginPath();
+    ctx.arc(star.x, star.y, star.radius, 0, Math.PI * 2);
+    ctx.fillStyle = `rgba(255, 255, 255, ${star.alpha})`;
+    ctx.fill();
+  }
+
+  requestAnimationFrame(drawStars);
+}
+
+drawStars();
 
 window.addEventListener("resize", () => {
-  canvas.height = window.innerHeight;
   canvas.width = window.innerWidth;
+  canvas.height = window.innerHeight;
 });
 </script>
 
