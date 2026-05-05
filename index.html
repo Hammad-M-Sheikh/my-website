@@ -263,9 +263,30 @@ animate();
 window.addEventListener("resize", resize);
 
 /* COLLAPSIBLE (EXPERIENCE + EDUCATION) */
-document.querySelectorAll(".collapsible").forEach(el => {
-  el.addEventListener("click", () => {
-    el.classList.toggle("open");
+document.querySelectorAll(".collapsible").forEach(container => {
+  const header = container.querySelector(".collapse-header");
+  const body = container.querySelector(".collapse-body");
+
+  header.addEventListener("click", () => {
+    const isOpen = container.classList.contains("open");
+
+    if (isOpen) {
+      // collapse
+      body.style.height = body.scrollHeight + "px";
+      requestAnimationFrame(() => {
+        body.style.height = "0px";
+      });
+      container.classList.remove("open");
+    } else {
+      // expand
+      body.style.height = body.scrollHeight + "px";
+      container.classList.add("open");
+
+      // reset to auto after animation
+      setTimeout(() => {
+        body.style.height = "auto";
+      }, 300);
+    }
   });
 });
 
