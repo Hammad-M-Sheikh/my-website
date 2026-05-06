@@ -290,3 +290,10 @@ h2 {
   font-size: 0.85rem;
   color: #9ca3af;
 }
+
+section {
+  max-width: 900px;
+  margin: 0 auto;
+  padding: 0 20px;
+}
+
